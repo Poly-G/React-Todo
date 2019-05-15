@@ -1,4 +1,6 @@
 import React from 'react';
+import Todo from './components/TodoComponents/Todo';
+
 
 class App extends React.Component {
   constructor(props){
@@ -23,7 +25,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        {this.state.todos.map(todo => (
+          <Todo 
+          key={todo.id}
+          todo={todo}
+          />
+        ))}
       </div>
     );
   }
