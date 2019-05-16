@@ -1,5 +1,6 @@
 import React from 'react';
 import Todo from './components/TodoComponents/Todo';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 
 class App extends React.Component {
@@ -20,11 +21,18 @@ class App extends React.Component {
        ]
      }
   }
-
+  addTodo = (todo) => {
+    this.setState({
+      todos: [todo, ...this.state.todos]
+    });
+  };
 
   render() {
     return (
       <div>
+        <TodoForm 
+        addTodo={this.addTodo}
+        />
         {this.state.todos.map(todo => (
           <Todo 
           key={todo.id}
