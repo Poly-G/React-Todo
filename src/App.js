@@ -43,13 +43,20 @@ class App extends React.Component {
     })
   }
 
+  clearTodo = e => {
+    e.preventDefault();
+    this.setState({
+      todos: this.state.todos.filter(todo => !todo.completed)
+    })
+  }
+
   render() {
     return (
       <div>
         <TodoForm 
         addTodo={this.addTodo}
-        
         />
+        
         {this.state.todos.map(todo => (
           <Todo 
           key={todo.id}
@@ -57,6 +64,9 @@ class App extends React.Component {
           toggleComplete={this.toggleComplete}
           />
         ))}
+        <button
+        onClick={e => this.clearTodo(e)}
+        >Clear</button>
       </div>
     );
   }

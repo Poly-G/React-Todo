@@ -45,7 +45,6 @@ class TodoForm extends Component {
                 onChange={this.handleChange}
                 placeholder="todo..."
                 key={this.id}
-
             />
             <button
             onClick={this.handleSubmit}
